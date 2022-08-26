@@ -8,10 +8,12 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 14:03:16 2022
+# Make data base, printed on Fri Aug 26 20:20:13 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -39,7 +41,9 @@ GOPATH = C:\Users\judd\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9800_VSHXOTOKQFNIINAV
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_37080_MSUSCWGGOAYWUYTL
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -69,7 +73,7 @@ ONEDRIVE = C:\Users\Judd Misael Baguio\OneDrive
 # makefile
 CURDIR := c:/Users/judd/Documents/Golang/go-grpc
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
@@ -87,7 +91,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 9800
+VSCODE_PID = 37080
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -209,7 +213,7 @@ PROCESSOR_REVISION = 8d01
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=98/1024=10%, Rehash=0, Collisions=7/125=6%
+# Load=100/1024=10%, Rehash=0, Collisions=8/127=6%
 
 # Pattern-specific Variable Values
 
@@ -217,9 +221,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/judd/Documents/Golang/go-grpc, mtime 1661438521): 12 files, no impossibilities.
+# . (key c:/Users/judd/Documents/Golang/go-grpc, mtime 1661505840): 13 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -231,13 +235,29 @@ k8s-ingress:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 52):
+#  recipe to execute (from 'Makefile', line 53):
 	kubectl apply -f ./infra/k8s/ingress.yaml
+
+gen-tls:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 64):
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./infra/k8s/tls/tls.key \
+	-out ./infra/k8s/tls/tls.crt -subj "/CN=juddbaguio.dev" \
+	-addext "subjectAltName = DNS:juddbaguio.dev"
+
+update-k8s-tls:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 61):
+	kubectl update secret tls grpc-tls --key ./infra/k8s/tls/tls.key --cert ./infra/k8s/tls/tls.crt
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 00:10:15
+#  Last modified 2022-08-26 16:56:07
 #  File has been updated.
 #  Successfully updated.
 
@@ -252,7 +272,8 @@ internal-nginx:
 	--set controller.ingressClassResource.name=nginx-internal \
 	--set controller.ingressClassResource.controllerValue="juddbaguio/grpc-internal-nginx" \
 	--set controller.ingressClassResource.enabled=true \
-	--set controller.ingressClassByName=true
+	--set controller.ingressClassByName=true \
+	--set controller.extraArgs.default-ssl-certificate="default/grpc-tls"
 
 gen-pb: generate-pb-hello generate-pb-auth
 #  Implicit rule search has not been done.
@@ -281,14 +302,14 @@ k8s-deployment:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 46):
+#  recipe to execute (from 'Makefile', line 47):
 	kubectl apply -f ./infra/k8s/auth.deployment.yaml -f ./infra/k8s/hello.deployment.yaml
 
 k8s-service:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 49):
+#  recipe to execute (from 'Makefile', line 50):
 	kubectl apply -f ./infra/k8s/service.yaml
 
 generate-pb-hello:
@@ -320,6 +341,13 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+run-client:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 69):
+	go run ./client
+
 k8s: k8s-deployment k8s-service k8s-ingress
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -332,11 +360,18 @@ build-auth:
 #  recipe to execute (from 'Makefile', line 18):
 	docker build -t juddbaguio/auth:latest -f ./infra/docker/auth.Dockerfile .
 
+k8s-tls:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	kubectl create secret tls grpc-tls --key ./infra/k8s/tls/tls.key --cert ./infra/k8s/tls/tls.crt
+
 external-nginx:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  recipe to execute (from 'Makefile', line 36):
 	helm install http-nginx ingress-nginx/ingress-nginx  \
 	--namespace default \
 	--set controller.electionID=http-external-nginx \
@@ -351,19 +386,19 @@ build-docker: build-auth build-hello
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/35=0%
+# Load=21/1024=2%, Rehash=0, Collisions=0/39=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 253 B / avg = 9 B
-# current buf: size = 8174 B / used = 253 B / count = 28 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 300 B / avg = 9 B
+# current buf: size = 8174 B / used = 300 B / count = 33 / avg = 9 B
 
-# strcache performance: lookups = 53 / hit rate = 47%
+# strcache performance: lookups = 62 / hit rate = 46%
 # hash-table stats:
-# Load=28/8192=0%, Rehash=0, Collisions=0/53=0%
-# Finished Make data base on Fri Aug 26 14:03:16 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/62=0%
+# Finished Make data base on Fri Aug 26 20:20:13 2022
 
  

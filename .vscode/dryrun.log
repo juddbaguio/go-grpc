@@ -1,0 +1,9 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/judd/Documents/Golang/go-grpc'
+rm -rf ./grpc/hello
+mkdir ./grpc/hello
+protoc --proto_path=proto --go_out=grpc/hello --go-grpc_out=grpc/hello \
+--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative \
+hello.proto
+make: Leaving directory 'c:/Users/judd/Documents/Golang/go-grpc'
+ 

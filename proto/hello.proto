@@ -1,0 +1,25 @@
+syntax = "proto3";
+option go_package = "go-grpc/hello";
+
+service HelloService {
+    rpc SayHello (HelloRequest) returns (HelloReply);
+    rpc SayHelloRepeated (HelloRequestRepeated) returns (stream HelloReply);
+}
+
+message HelloRequest {
+    string greeting = 1;
+}
+
+message HelloRequestRepeated {
+    string greeting = 1;
+    int32 num = 2;
+}
+
+message HelloReply {
+    string reply = 1;
+}
+
+message HelloReplyRepeated {
+    repeated HelloReply replies = 1;
+}
+

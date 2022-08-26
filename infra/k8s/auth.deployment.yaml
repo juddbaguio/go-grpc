@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+  labels:
+    app: auth
+spec:
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - image: juddbaguio/auth:latest
+        name: auth-image
+        ports:
+        - containerPort: 3000
+          name:  auth-port
+        imagePullPolicy: Never
+      restartPolicy: Always

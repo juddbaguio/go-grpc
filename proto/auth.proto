@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "go-grpc/auth";
+
+service AuthService {
+    rpc HandleLogin (Login) returns (LoginResponse);
+}
+
+message Login {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string authToken = 1;
+    string refreshToken = 2;
+}

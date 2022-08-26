@@ -1,0 +1,369 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Aug 26 14:03:16 2022
+
+# Variables
+
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = C:\Program Files\OpenJDK\openjdk-11.0.14.1_1
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\judd
+# environment
+LOCALAPPDATA = C:\Users\judd\AppData\Local
+# environment
+VSCODE_CWD = C:\Users\judd\Documents\Golang\go-grpc
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\Windows
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# environment
+GOPATH = C:\Users\judd\go
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9800_VSHXOTOKQFNIINAV
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\judd\AppData\Roaming\Code\CachedData\e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\judd\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\Judd Misael Baguio\OneDrive
+# makefile
+CURDIR := c:/Users/judd/Documents/Golang/go-grpc
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 9800
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+*F = $(notdir $*)
+# environment
+AWS_PROFILE = judd-freshket
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := Windows32
+# environment
+ANDROID_HOME = C:\Users\judd\AppData\Local\Android\Sdk
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\judd
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\Windows\system32\cmd.exe
+# environment
+WINDIR = C:\Windows
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\Cloudflare\Cloudflare WARP;C:\Program Files\Git\cmd;C:\minikube;C:\Program Files\Amazon\AWSCLIV2\;C:\TDM-GCC-64\bin;C:\Program Files (x86)\NSIS\Bin;C:\Program Files\nodejs\;C:\Users\judd\AppData\Roaming\npm;C:\Program Files\OpenJDK\openjdk-11.0.14.1_1\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\judd\protoc-21.1-win64\bin;C:\Program Files\Go\bin;C:\Users\judd\ab\Apache24\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\judd\.cargo\bin;C:\Users\Judd Misael Baguio\scoop\shims;C:\Users\Judd Misael Baguio\AppData\Local\Microsoft\WindowsApps;C:\Users\Judd Misael Baguio\go\bin;C:\Users\Judd Misael Baguio\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Judd Misael Baguio\AppData\Roaming\npm;C:\Users\judd\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\judd\AppData\Local\Android\Sdk\platform-tools;C:\Users\judd\protoc-21.1-win64\bin;C:\Users\judd\go\bin;C:\Program Files\OpenSSL-Win64\bin;
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+COMPUTERNAME = LAPTOP-S35TRE41
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+OPENSSL_CONF = C:\Program Files\OpenSSL-Win64\bin\openssl.cfg
+# environment
+CHOCOLATEYLASTPATHUPDATE = 133059668734278646
+# environment
+LOGONSERVER = \\LAPTOP-S35TRE41
+# environment
+USERNAME = Judd Misael Baguio
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = LAPTOP-S35TRE41
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := generate-pb-hello
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = LAPTOP-S35TRE41
+# environment
+NUMBER_OF_PROCESSORS = 16
+# environment
+PUBLIC = C:\Users\Public
+# environment
+PATHTOMAKENSIS = C:\Program Files (x86)\NSIS\Bin
+# environment
+APPDATA = C:\Users\judd\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+GOMODCACHE = C:\Users\judd\go\pkg\mod
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\judd\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\b5c2628547bdd12d4edc98360726b526-1.70.2-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 8d01
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
+# variable set hash-table stats:
+# Load=98/1024=10%, Rehash=0, Collisions=7/125=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/judd/Documents/Golang/go-grpc, mtime 1661438521): 12 files, no impossibilities.
+
+# 12 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+k8s-ingress:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 52):
+	kubectl apply -f ./infra/k8s/ingress.yaml
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 00:10:15
+#  File has been updated.
+#  Successfully updated.
+
+internal-nginx:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	helm install grpc-nginx ingress-nginx/ingress-nginx  \
+	--namespace default \
+	--set controller.electionID=grpc-internal-nginx \
+	--set controller.ingressClassResource.name=nginx-internal \
+	--set controller.ingressClassResource.controllerValue="juddbaguio/grpc-internal-nginx" \
+	--set controller.ingressClassResource.enabled=true \
+	--set controller.ingressClassByName=true
+
+gen-pb: generate-pb-hello generate-pb-auth
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build-hello:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	docker build -t juddbaguio/hello:latest -f ./infra/docker/hello.Dockerfile .
+
+generate-pb-auth:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 9):
+	rm -rf ./grpc/auth
+	mkdir ./grpc/auth
+	protoc --proto_path=proto --go_out=grpc/auth --go-grpc_out=grpc/auth \
+	--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative \
+	auth.proto
+
+k8s-deployment:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 46):
+	kubectl apply -f ./infra/k8s/auth.deployment.yaml -f ./infra/k8s/hello.deployment.yaml
+
+k8s-service:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 49):
+	kubectl apply -f ./infra/k8s/service.yaml
+
+generate-pb-hello:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 2):
+	rm -rf ./grpc/hello
+	mkdir ./grpc/hello
+	protoc --proto_path=proto --go_out=grpc/hello --go-grpc_out=grpc/hello \
+	--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative \
+	hello.proto
+
+nginx: internal-nginx
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+k8s: k8s-deployment k8s-service k8s-ingress
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build-auth:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 18):
+	docker build -t juddbaguio/auth:latest -f ./infra/docker/auth.Dockerfile .
+
+external-nginx:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 35):
+	helm install http-nginx ingress-nginx/ingress-nginx  \
+	--namespace default \
+	--set controller.electionID=http-external-nginx \
+	--set controller.ingressClassResource.name=nginx-external \
+	--set controller.ingressClassResource.controllerValue="juddbaguio/http-external-nginx" \
+	--set controller.ingressClassResource.enabled=true \
+	--set controller.ingressClassByName=true
+
+build-docker: build-auth build-hello
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=17/1024=2%, Rehash=0, Collisions=0/35=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 28 / storage = 253 B / avg = 9 B
+# current buf: size = 8174 B / used = 253 B / count = 28 / avg = 9 B
+
+# strcache performance: lookups = 53 / hit rate = 47%
+# hash-table stats:
+# Load=28/8192=0%, Rehash=0, Collisions=0/53=0%
+# Finished Make data base on Fri Aug 26 14:03:16 2022
+
+ 

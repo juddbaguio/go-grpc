@@ -1,0 +1,1 @@
+{"buildTargets":["build-auth","build-docker","build-hello","external-nginx","gen-pb","generate-pb-auth","generate-pb-hello","internal-nginx","k8s","k8s-deployment","k8s-ingress","k8s-service","nginx"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

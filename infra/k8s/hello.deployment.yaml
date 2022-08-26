@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    app: hello
+spec:
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - image: juddbaguio/hello:latest
+        name: hello-image
+        ports:
+        - containerPort: 3000
+          name:  hello-port
+        imagePullPolicy: Never
+      restartPolicy: Always

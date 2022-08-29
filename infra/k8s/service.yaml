@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: auth
-  ports:
-  - port: 3000
+  ports: 
+  - name: grpc
+    port: 3000
     targetPort: auth-port
     protocol: TCP
 
@@ -20,8 +21,7 @@ spec:
   selector:
     app: hello
   ports:
-  - port: 80
+  - name: grpc
+    port: 80
     targetPort: hello-port
     protocol: TCP
-
----

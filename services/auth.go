@@ -10,5 +10,8 @@ type Auth struct {
 }
 
 func (a *Auth) HandleLogin(ctx context.Context, login *auth.Login) (*auth.LoginResponse, error) {
-	return nil, nil
+	return &auth.LoginResponse{
+		AuthToken:    login.Username,
+		RefreshToken: login.Password,
+	}, nil
 }

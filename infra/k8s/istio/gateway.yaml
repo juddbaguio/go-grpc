@@ -1,0 +1,19 @@
+# See more at https://istio.io/docs/reference/config/networking/gateway/
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: grpc-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: https
+    hosts:
+    - "hello.juddbaguio.dev"
+    - "auth.juddbaguio.dev"
+    tls:
+      mode: SIMPLE
+      credentialName: grpc-tls

@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/tls"
 	"crypto/x509"
+	"go-grpc/grpc/auth"
 	"go-grpc/grpc/hello"
 	"io/ioutil"
 	"log"
@@ -13,7 +14,7 @@ import (
 	"google.golang.org/grpc/credentials"
 )
 
-func NewCredentials() credentials.TransportCredentials {
+func NewCredentials(serverName string) credentials.TransportCredentials {
 	b, err := ioutil.ReadFile("./infra/k8s/tls/tls.crt")
 	if err != nil {
 		log.Println(err)
@@ -27,33 +28,39 @@ func NewCredentials() credentials.TransportCredentials {
 	}
 
 	return credentials.NewTLS(&tls.Config{
-		ServerName:         "juddbaguio.dev",
+		ServerName:         serverName,
 		RootCAs:            cp,
 		InsecureSkipVerify: true,
 	})
 }
 
 func main() {
-	conn, err := grpc.Dial("juddbaguio.dev:443", grpc.WithTransportCredentials(NewCredentials()))
+	conn, err := grpc.Dial("hello.juddbaguio.dev:443", grpc.WithTransportCredentials(NewCredentials("hello.juddbaguio.dev")))
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer conn.Close()
 
-	client := hello.NewHelloServiceClient(conn)
+	authConn, err := grpc.Dial("auth.juddbaguio.dev:443", grpc.WithTransportCredentials(NewCredentials("auth.juddbaguio.dev")))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer authConn.Close()
 
-	res, err := client.SayHello(context.Background(), &hello.HelloRequest{
+	log.Println("connected successfully")
+	helloSrv := hello.NewHelloServiceClient(conn)
+	res, err := helloSrv.SayHello(context.Background(), &hello.HelloRequest{
 		Greeting: "Hello",
 	})
 
 	if err != nil {
-		log.Println(err)
+		log.Println("GRPC ERROR: ", err.Error())
 		os.Exit(1)
 	}
 
 	log.Println(res.Reply)
 
-	repeatedRes, err := client.SayHelloRepeated(context.Background(), &hello.HelloRequestRepeated{
+	repeatedRes, err := helloSrv.SayHelloRepeated(context.Background(), &hello.HelloRequestRepeated{
 		Greeting: "WOW",
 		Num:      23,
 	})
@@ -71,4 +78,17 @@ func main() {
 		}
 		log.Println(reply)
 	}
+	authSrv := auth.NewAuthServiceClient(authConn)
+
+	loginRes, err := authSrv.HandleLogin(context.Background(), &auth.Login{
+		Username: "Hello!",
+		Password: "WOW",
+	})
+
+	if err != nil {
+		log.Println("error: ", err.Error())
+		os.Exit(1)
+	}
+
+	log.Println(loginRes)
 }

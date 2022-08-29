@@ -52,18 +52,27 @@ k8s-service:
 k8s-ingress:
 	kubectl apply -f ./infra/k8s/ingress.yaml
 
-k8s: k8s-deployment k8s-service k8s-ingress
+k8s: k8s-deployment k8s-service
 
 k8s-tls:
 	kubectl create secret tls grpc-tls --key ./infra/k8s/tls/tls.key --cert ./infra/k8s/tls/tls.crt
+
+delete-istio-tls:
+	kubectl -n istio-system delete secret grpc-tls
+
+istio-tls: delete-istio-tls
+	kubectl -n istio-system create secret tls grpc-tls --save-config --key ./infra/k8s/tls/tls.key --cert ./infra/k8s/tls/tls.crt
 
 update-k8s-tls:
 	kubectl update secret tls grpc-tls --key ./infra/k8s/tls/tls.key --cert ./infra/k8s/tls/tls.crt
 
 gen-tls:
 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./infra/k8s/tls/tls.key \
-	-out ./infra/k8s/tls/tls.crt -subj "/CN=juddbaguio.dev" \
-	-addext "subjectAltName = DNS:juddbaguio.dev"
+	-out ./infra/k8s/tls/tls.crt -subj "/CN=*.juddbaguio.dev" \
+	-addext "subjectAltName = DNS:*.juddbaguio.dev"
 
 run-client:
 	go run ./client
+
+istio:
+	kubectl apply -f ./infra/k8s/istio

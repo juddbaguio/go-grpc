@@ -8,10 +8,12 @@ spec:
   selector:
     matchLabels:
       app: auth
+      version: v1
   template:
     metadata:
       labels:
         app: auth
+        version: v1
     spec:
       containers:
       - image: juddbaguio/auth:latest

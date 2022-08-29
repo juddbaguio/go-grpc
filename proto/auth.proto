@@ -1,4 +1,5 @@
 syntax = "proto3";
+package auth;
 option go_package = "go-grpc/auth";
 
 service AuthService {
